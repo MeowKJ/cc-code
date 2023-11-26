@@ -1,4 +1,5 @@
 local FUEL_TYPES_PATTERN = "log"
+local SAPLING_TYPES_PATTERN = "sapling"
 local FUEL_THRESHOLD = 64
 local x = 0
 local y = 0
@@ -26,6 +27,13 @@ local function chopTree()
         turtle.dig()
     end
     turtle.forward()
+    for i = 1, 16 do
+        turtle.select(i)
+        if string.find(turtle.getItemDetail().name, SAPLING_TYPES_PATTERN) then
+            turtle.place()
+            break
+        end
+    end
 end
 
 local function goHome()
@@ -43,10 +51,7 @@ end
 
 local function collectWood()
     print("collectWood")
-    for i = 1, 16 do
-        turtle.select(i)
-        turtle.suck()
-    end
+    turtle.suck()
 end
 
 local function main()
