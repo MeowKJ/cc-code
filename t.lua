@@ -12,8 +12,8 @@ local function checkFuel()
     if turtle.getFuelLevel() < FUEL_THRESHOLD then
         for i = 1, 16 do
             turtle.select(i)
-            local name  = turtle.getItemDetail().name
-            if not name == nil and string.find(turtle.getItemDetail().name, FUEL_TYPES_PATTERN) then
+            local item = turtle.getItemDetail()
+            if not item == nil and string.find(item.name, FUEL_TYPES_PATTERN) then
                 turtle.refuel()
                 break
             end
@@ -29,8 +29,8 @@ local function chopTree()
     end
     for i = 1, 16 do
         turtle.select(i)
-        local name  = turtle.getItemDetail().name
-        if not name == nil and string.find(turtle.getItemDetail().name, SAPLING_TYPES_PATTERN) then
+        local item = turtle.getItemDetail()
+        if not item == nil and string.find(item.name, SAPLING_TYPES_PATTERN) then
             turtle.place()
             break
         end
