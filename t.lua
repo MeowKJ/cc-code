@@ -35,7 +35,8 @@ local function chopTree()
             break
         end
     end
-    turtle.forward()
+    print("collectWood")
+    turtle.suck()
 end
 
 local function goHome()
@@ -51,25 +52,23 @@ local function goHome()
     turtle.turnLeft()
 end
 
-local function collectWood()
-    print("collectWood")
-    turtle.suck()
-end
 
 local function main()
     while true do
         while y < 7 do
             checkFuel()
             chopTree()
-            collectWood()
+            turtle.forward()
             if x > 6 then
                 if y % 2 == 0 then
                     turtle.turnRight()
+                    chopTree()
                     turtle.forward()
                     turtle.turnRight()
                 end
                 if y % 2 == 1 then
                     turtle.turnLeft()
+                    chopTree()
                     turtle.forward()
                     turtle.turnLeft()
                 end
@@ -85,6 +84,7 @@ local function main()
         os.sleep(300)
     end
 end
+
 
 init()
 main()
