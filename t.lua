@@ -1,4 +1,4 @@
-local FUEL_TYPES_PATTERN = "log"
+local FUEL_TYPES_PATTERN = "og"
 local SAPLING_TYPES_PATTERN = "sapling"
 local FUEL_THRESHOLD = 64
 local x = 0
