@@ -41,11 +41,11 @@ end
 
 local function goHome()
     turtle.turnLeft()
-    for i = 1, 6 do
+    for i = 1, 7 do
         turtle.forward()
     end
     turtle.turnLeft()
-    for i = 1, 6 do
+    for i = 1, 8 do
         turtle.forward()
     end
     turtle.turnLeft()
