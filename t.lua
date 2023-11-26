@@ -41,7 +41,6 @@ local function goHome()
     turtle.turnLeft()
 end
 
--- 收集木材
 local function collectWood()
     print("collectWood")
     for i = 1, 16 do
@@ -57,12 +56,12 @@ local function main()
             chopTree()
             collectWood()
             if x > 6 then
-                if x % 2 == 0 then
+                if y % 2 == 0 then
                     turtle.turnRight()
                     turtle.forward()
                     turtle.turnRight()
                 end
-                if x % 2 == 1 then
+                if y % 2 == 1 then
                     turtle.turnLeft()
                     turtle.forward()
                     turtle.turnLeft()
