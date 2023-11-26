@@ -13,7 +13,7 @@ local function checkFuel()
         for i = 1, 16 do
             turtle.select(i)
             local item = turtle.getItemDetail()
-            if not item == nil and string.find(item.name, FUEL_TYPES_PATTERN) then
+            if (item ~= nil) and (string.find(item.name, FUEL_TYPES_PATTERN) ~= nil) then
                 turtle.refuel()
                 break
             end
@@ -30,7 +30,7 @@ local function chopTree()
     for i = 1, 16 do
         turtle.select(i)
         local item = turtle.getItemDetail()
-        if not item == nil and string.find(item.name, SAPLING_TYPES_PATTERN) then
+        if (item ~= nil) and (string.find(item.name, SAPLING_TYPES_PATTERN) ~= nil) then
             turtle.place()
             break
         end
