@@ -6,6 +6,14 @@ local TURN_RIGHT_BLOOCK = "minecraft:polished_granite"
 local GOHOME_BLOOCK = "minecraft:pumpkin"
 local FUEL_THRESHOLD = 64
 
+
+function digAndForward()
+    while turtle.detect() do
+        turttle.dig()
+    end
+    turtle.forward()
+end
+
 local function init()
     turtle.select(1)
     turtle.turnLeft()
@@ -38,7 +46,7 @@ local function chopTreeAndplaceSapling()
     print("chopTree Start")
 
     local success, data = turtle.inspect()
-    
+
     while success and string.find(data.name, SAPLING_TYPES_PATTERN) == nil do
         turtle.dig()
         success, data = turtle.inspect()
@@ -87,17 +95,9 @@ local function dorpItems()
     turtle.turnLeft()
 end
 
-function digAndForward()
-    while turtle.detect() do
-        turttle.dig()
-    end
-    digAndForward()
-    
-end
 
 local function main()
     while true do
-
         init()
         while true do
             local success, data = turtle.inspectDown()
