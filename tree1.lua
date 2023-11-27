@@ -17,10 +17,10 @@ end
 
 local function init()
     turtle.select(1)
-    turtle.turnLeft()
+    turtle.turnRight()
     turtle.suck(16)
     turtle.suckUp(64)
-    turtle.turnRight()
+    turtle.turnLeft()
     digAndForward()
     turtle.turnLeft()
     digAndForward()
