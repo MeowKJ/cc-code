@@ -12,6 +12,7 @@ function digAndForward()
         turtle.dig()
     end
     turtle.forward()
+    turtle.suck()
 end
 
 local function init()
