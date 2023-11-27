@@ -46,17 +46,17 @@ local function chopTreeAndplaceSapling(isLeft)
     print("chopTree Start")
 
     local success, data = turtle.inspect()
-    local digFlag = false
     while success and string.find(data.name, SAPLING_TYPES_PATTERN) == nil do
         turtle.dig()
         success, data = turtle.inspect()
-        digFlag = true
     end
-    if digFlag then
+
+
+    if not turtle.detect() then
         -- suck fornt
         turtle.suck()
         turtle.suckup()
-        
+
         -- suck left
         turtle.turnLeft()
         turtle.suck()
@@ -87,15 +87,10 @@ local function chopTreeAndplaceSapling(isLeft)
         turtle.forward()
         turtle.suck()
 
-        if isLeft then
-            turtle.turnLeft()
-        else
-            turtle.turnRight()
-        end
-    end
+        -- spin
+        turtle.turnLeft()
+        turtle.turnLeft()
 
-
-    if not turtle.detect() then
         for i = 1, 16 do
             turtle.select(i)
             local item = turtle.getItemDetail()
@@ -103,6 +98,12 @@ local function chopTreeAndplaceSapling(isLeft)
                 turtle.place()
                 break
             end
+        end
+
+        if isLeft then
+            turtle.turnRight()
+        else
+            turtle.turnleft()
         end
     end
     print("chopTree End")
