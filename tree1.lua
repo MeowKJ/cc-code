@@ -144,7 +144,7 @@ local function main()
         end
         for i = 1, 120 do
             os.sleep(1)
-            print("expire %d", 120-i)
+            print("expire %ds", 120-i)
         end
     end
 end
