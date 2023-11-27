@@ -142,7 +142,7 @@ local function main()
             step()
             digAndForward()
         end
-        os.sleep(300)
+        os.sleep(120)
     end
 end
 
