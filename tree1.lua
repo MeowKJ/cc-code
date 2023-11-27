@@ -135,9 +135,6 @@ local function main()
 
             checkFuel()
             step()
-            while turtle.detect() do
-                turtle.dig()
-            end
             digAndForward()
         end
         os.sleep(300)
