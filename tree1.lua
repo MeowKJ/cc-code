@@ -9,9 +9,13 @@ local FUEL_THRESHOLD = 64
 
 local function init()
     turtle.select(1)
-    turtle.forward()
     turtle.turnLeft()
-    turtle.forward()
+    turtle.suck(16)
+    turtle.suckUp(64)
+    turtle.turnRight()
+    digAndForward()
+    turtle.turnLeft()
+    digAndForward()
 end
 
 local function checkFuel()
@@ -81,13 +85,20 @@ local function dorpItems()
             end
         end
     end
-    turtle.suck(16)
-    turtle.suckUp(64)
     turtle.turnLeft()
+end
+
+function digAndForward()
+    while turtle.detect() do
+        turttle.dig()
+    end
+    digAndForward()
+    
 end
 
 local function main()
     while true do
+
         init()
         while true do
             local success, data = turtle.inspectDown()
@@ -95,7 +106,7 @@ local function main()
                 print("GO HOME AND DROP WOOD")
                 turtle.turnRight()
                 for i = 1, 10 do
-                    turtle.forward()
+                    digAndForward()
                 end
                 turtle.turnLeft()
                 turtle.turnLeft()
@@ -106,26 +117,29 @@ local function main()
             if success and data.name == TURN_LEFT_BLOOCK then
                 print("TURN LEFT")
                 turtle.turnLeft()
-                turtle.forward()
-                turtle.forward()
-                turtle.forward()
+                digAndForward()
+                digAndForward()
+                digAndForward()
                 turtle.turnLeft()
-                turtle.forward()
+                digAndForward()
             end
 
             if success and data.name == TURN_RIGHT_BLOOCK then
                 print("TURN RIGHT")
                 turtle.turnRight()
-                turtle.forward()
-                turtle.forward()
-                turtle.forward()
+                digAndForward()
+                digAndForward()
+                digAndForward()
                 turtle.turnRight()
-                turtle.forward()
+                digAndForward()
             end
 
             checkFuel()
             step()
-            turtle.forward()
+            while turtle.detect() do
+                turttle.dig()
+            end
+            digAndForward()
         end
         os.sleep(300)
     end
