@@ -54,44 +54,6 @@ local function chopTreeAndplaceSapling(isLeft)
 
 
     if not turtle.detect() then
-        -- suck fornt
-        turtle.suck()
-        turtle.suckUp()
-
-        -- suck left
-        turtle.turnLeft()
-        turtle.suck()
-
-        -- suck right
-        turtle.turnRight()
-        turtle.turnRight()
-        turtle.suck()
-
-        -- ok
-        turtle.turnLeft()
-
-        -- go forward and suck
-        turtle.forward()
-        turtle.suck()
-
-        --suck right
-        turtle.turnRight()
-        turtle.suck()
-
-        --suck left
-        turtle.turnLeft()
-        turtle.turnLeft()
-        turtle.suck()
-
-        -- go back and suck
-        turtle.turnLeft()
-        turtle.forward()
-        turtle.suck()
-
-        -- spin
-        turtle.turnLeft()
-        turtle.turnLeft()
-
         for i = 1, 16 do
             turtle.select(i)
             local item = turtle.getItemDetail()
@@ -100,12 +62,6 @@ local function chopTreeAndplaceSapling(isLeft)
                 break
             end
         end
-
-        if isLeft then
-            turtle.turnRight()
-        else
-            turtle.turnLeft()
-        end
     end
     print("chopTree End")
 end
@@ -113,12 +69,12 @@ end
 
 local function step()
     turtle.turnLeft()
-    chopTreeAndplaceSapling(true)
+    chopTreeAndplaceSapling()
     turtle.suck()
     turtle.turnRight()
     turtle.suck()
     turtle.turnRight()
-    chopTreeAndplaceSapling(false)
+    chopTreeAndplaceSapling()
     turtle.suck()
     turtle.turnLeft()
     turtle.suck()
