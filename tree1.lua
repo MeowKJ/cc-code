@@ -51,9 +51,6 @@ local function chopTreeAndplaceSapling()
             end
         end
     end
-
-    turtle.suck()
-
     print("chopTree End")
 end
 
@@ -61,10 +58,14 @@ end
 local function step()
     turtle.turnLeft()
     chopTreeAndplaceSapling()
+    turtle.suck()
     turtle.turnRight()
+    turtle.suck()
     turtle.turnRight()
     chopTreeAndplaceSapling()
+    turtle.suck()
     turtle.turnLeft()
+    turtle.suck()
 end
 
 
