@@ -104,7 +104,7 @@ local function chopTreeAndplaceSapling(isLeft)
         if isLeft then
             turtle.turnRight()
         else
-            turtle.turnleft()
+            turtle.turnLeft()
         end
     end
     print("chopTree End")
