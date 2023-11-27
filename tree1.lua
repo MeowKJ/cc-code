@@ -42,7 +42,14 @@ local function chopTreeAndplaceSapling()
     end
 
     if not turtle.detect() then
-        placeSapling()
+        for i = 1, 16 do
+            turtle.select(i)
+            local item = turtle.getItemDetail()
+            if (item ~= nil) and (string.find(item.name, SAPLING_TYPES_PATTERN) ~= nil) then
+                turtle.place()
+                break
+            end
+        end
     end
 
     turtle.suck()
