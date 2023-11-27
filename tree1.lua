@@ -9,7 +9,7 @@ local FUEL_THRESHOLD = 64
 
 function digAndForward()
     while turtle.detect() do
-        turttle.dig()
+        turtle.dig()
     end
     turtle.forward()
 end
@@ -42,15 +42,58 @@ end
 
 
 
-local function chopTreeAndplaceSapling()
+local function chopTreeAndplaceSapling(isLeft)
     print("chopTree Start")
 
     local success, data = turtle.inspect()
-
+    local digFlag = false
     while success and string.find(data.name, SAPLING_TYPES_PATTERN) == nil do
         turtle.dig()
         success, data = turtle.inspect()
+        digFlag = true
     end
+    if digFlag then
+        -- suck fornt
+        turtle.suck()
+        turtle.suckup()
+        
+        -- suck left
+        turtle.turnLeft()
+        turtle.suck()
+
+        -- suck right
+        turtle.turnRight()
+        turtle.turnRight()
+        turtle.suck()
+
+        -- ok
+        turtle.turnLeft()
+
+        -- go forward and suck
+        turtle.forward()
+        turtle.suck()
+
+        --suck right
+        turtle.turnRight()
+        turtle.suck()
+
+        --suck left
+        turtle.turnLeft()
+        turtle.turnLeft()
+        turtle.suck()
+
+        -- go back and suck
+        turtle.turnLeft()
+        turtle.forward()
+        turtle.suck()
+
+        if isLeft then
+            turtle.turnLeft()
+        else
+            turtle.turnRight()
+        end
+    end
+
 
     if not turtle.detect() then
         for i = 1, 16 do
@@ -68,12 +111,12 @@ end
 
 local function step()
     turtle.turnLeft()
-    chopTreeAndplaceSapling()
+    chopTreeAndplaceSapling(true)
     turtle.suck()
     turtle.turnRight()
     turtle.suck()
     turtle.turnRight()
-    chopTreeAndplaceSapling()
+    chopTreeAndplaceSapling(false)
     turtle.suck()
     turtle.turnLeft()
     turtle.suck()
