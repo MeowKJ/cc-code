@@ -142,7 +142,10 @@ local function main()
             step()
             digAndForward()
         end
-        os.sleep(120)
+        for i = 1, 120 do
+            os.sleep(1)
+            print("expire %d", 120-i)
+        end
     end
 end
 
