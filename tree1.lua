@@ -6,7 +6,6 @@ local TURN_RIGHT_BLOOCK = "minecraft:polished_granite"
 local GOHOME_BLOOCK = "minecraft:pumpkin"
 local FUEL_THRESHOLD = 64
 
-
 local function init()
     turtle.select(1)
     turtle.turnLeft()
@@ -137,7 +136,7 @@ local function main()
             checkFuel()
             step()
             while turtle.detect() do
-                turttle.dig()
+                turtle.dig()
             end
             digAndForward()
         end
