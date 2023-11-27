@@ -76,7 +76,11 @@ local function step()
     turtle.turnRight()
     chopTreeAndplaceSapling()
     turtle.suck()
-    turtle.turnLeft()
+    turtle.turnRight()
+    turtle.suck()
+    turtle.turnRight()
+    turtle.suck()
+    turtle.turnRight()
     turtle.suck()
 end
 
