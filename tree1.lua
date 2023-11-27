@@ -68,6 +68,23 @@ local function step()
     turtle.suck()
 end
 
+local function dorpItems()
+    print("DROP ITEMS Start")
+    turtle.turnRight()
+    for i = 1, 16 do
+        turtle.select(i)
+        if turtle.getItemCount() > 0 then
+            if string.find(turtle.getItemDetail().name, SAPLING_TYPES_PATTERN) ~= nil then
+                turtle.dropUp()
+            else
+                turtle.drop()
+            end
+        end
+    end
+    turtle.suck(16)
+    turtle.suckUp(64)
+    turtle.turnLeft()
+end
 
 local function main()
     while true do
@@ -82,6 +99,7 @@ local function main()
                 end
                 turtle.turnLeft()
                 turtle.turnLeft()
+                dorpItems()
                 break
             end
 
