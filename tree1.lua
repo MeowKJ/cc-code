@@ -55,7 +55,7 @@ local function chopTreeAndplaceSapling(isLeft)
     if not turtle.detect() then
         -- suck fornt
         turtle.suck()
-        turtle.suckup()
+        turtle.suckUp()
 
         -- suck left
         turtle.turnLeft()
